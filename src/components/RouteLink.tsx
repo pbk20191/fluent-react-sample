@@ -9,7 +9,11 @@ import { Link as RemixLink, type LinkProps as RemixLinkProps } from "react-route
 
 export type RouteLinkProps = Omit<FluentLinkProps & RemixLinkProps, "as" | "href">
 
-const RouteLink = forwardRef((props: RouteLinkProps, ref: Ref<HTMLAnchorElement>) => {
+/**
+ * A RouteLink is a reference to data that a user can follow by clicking or tapping it.
+ * The public API for rendering a history-aware .
+ */
+const RouteLink: React.ForwardRefExoticComponent<RouteLinkProps> = forwardRef((props: RouteLinkProps, ref: Ref<HTMLAnchorElement>) => {
     const state = useLink_unstable({ ...{ as: "a" }, ...props }, ref)
     useLinkStyles_unstable(state)
     useLinkState_unstable(state)
