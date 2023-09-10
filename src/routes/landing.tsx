@@ -1,8 +1,8 @@
 import { type IndexRouteObject } from "react-router/dist/lib/context"
 import logo from "../logo.svg"
 import "../App.css"
-import { Button, Image, Link, Text } from "@fluentui/react-components"
-import React, { useState } from "react"
+import { Image, Link, Text } from "@fluentui/react-components"
+import React from "react"
 import RouteLink from "../components/RouteLink"
 
 const View: React.FC = () => {

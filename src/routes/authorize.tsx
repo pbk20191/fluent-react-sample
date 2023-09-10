@@ -15,7 +15,9 @@ import {
     DialogTitle,
     DialogContent,
     DialogActions,
-    Toast
+    Toast,
+    ToastTitle,
+    Spinner
 } from "@fluentui/react-components"
 import React, { Fragment } from "react"
 import { ReactComponent as LockOpenIcon } from "../icon/lock-open.svg"
@@ -174,7 +176,11 @@ const View: React.FC = () => {
                             shape="rounded"
                             className={style.actionButton}
                             onClick={(event) => {
-                                toastCenter.dispatchToast(<Toast>asdfsadf</Toast>)
+                                toastCenter.dispatchToast(
+                                    <Toast>
+                                        <ToastTitle media={<Spinner size="tiny"/>}>회원가입 중</ToastTitle>
+                                    </Toast>
+                                )
                             }}
                         >
                             회원가입
