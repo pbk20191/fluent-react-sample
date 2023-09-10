@@ -1,8 +1,8 @@
 import { type IndexRouteObject } from "react-router/dist/lib/context"
 import logo from "../logo.svg"
 import "../App.css"
-import { Image, Link, Text } from "@fluentui/react-components"
-import React from "react"
+import { Button, Image, Link, Text } from "@fluentui/react-components"
+import React, { useState } from "react"
 import RouteLink from "../components/RouteLink"
 
 const View: React.FC = () => {
@@ -22,9 +22,15 @@ const View: React.FC = () => {
                     Learn React
                 </Link>
                 <RouteLink to="authorize">Login</RouteLink>
+                <MyScreen/>
             </header>
         </div>
     )
+}
+
+const MyScreen: React.FC = () => {
+    return (<div>
+    </div>)
 }
 
 const route: IndexRouteObject = {

@@ -33,6 +33,7 @@
         }],
         "no-trailing-spaces": "warn",
         "@typescript-eslint/no-unused-vars": "warn",
-        "@typescript-eslint/no-unused-expressions": "warn"
+        "@typescript-eslint/no-unused-expressions": "warn",
+        "@typescript-eslint/block-spacing": "warn"
     }
 }

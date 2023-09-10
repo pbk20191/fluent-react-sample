@@ -14,11 +14,13 @@ import {
     DialogBody,
     DialogTitle,
     DialogContent,
-    DialogActions
+    DialogActions,
+    Toast
 } from "@fluentui/react-components"
 import React, { Fragment } from "react"
 import { ReactComponent as LockOpenIcon } from "../icon/lock-open.svg"
 import { ReactComponent as PersonIcon } from "../icon/person.svg"
+import { useToastCenter } from "../components/toastCenter"
 
 const useStyle = makeStyles({
     logo: {
@@ -98,7 +100,7 @@ const useSimpleStyle = makeStyles({
 const View: React.FC = () => {
     const style = useStyle()
     const simpleStyle = useSimpleStyle()
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const toastCenter = useToastCenter()
     return (
         <div className={style.root}>
             <img src="/baramiLogo.png" alt="appLogo" className={style.logo} />
@@ -171,6 +173,9 @@ const View: React.FC = () => {
                             size="large"
                             shape="rounded"
                             className={style.actionButton}
+                            onClick={(event) => {
+                                toastCenter.dispatchToast(<Toast>asdfsadf</Toast>)
+                            }}
                         >
                             회원가입
                         </Button>
