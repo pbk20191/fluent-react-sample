@@ -1,12 +1,13 @@
 import { type IndexRouteObject } from "react-router/dist/lib/context"
 import { ReactComponent as ReactLogo } from "../logo.svg"
 import "../App.css"
-import { Link, Text } from "@fluentui/react-components"
-import React from "react"
+import { Button, Link, Slider, type SliderOnChangeData, Text } from "@fluentui/react-components"
+import React, { type MouseEventHandler, useCallback, useState, type ChangeEvent } from "react"
 import RouteLink from "../components/RouteLink"
 import BaramiLogo from "../components/BaramiLogo"
 
 const View: React.FC = () => {
+    console.log("render landing")
     return (
         <div className="App">
             <header className="App-header">
@@ -31,7 +32,22 @@ const View: React.FC = () => {
 }
 
 const MyScreen: React.FC = () => {
+    const [count, setCount] = useState(0)
+    const increaseAction: MouseEventHandler<HTMLButtonElement> = useCallback((event) => {
+        setCount(number => number + 1)
+    }, [setCount])
+    const decreaseAction: MouseEventHandler<HTMLButtonElement> = useCallback((event) => {
+        setCount(number => number - 1)
+    }, [setCount])
+    const sliderAction = useCallback((event: ChangeEvent<HTMLInputElement>, data: SliderOnChangeData) => {
+        setCount(data.value)
+    }, [setCount])
+    console.log("render MyScreen")
     return (<div>
+        <Text>{count}</Text>
+        <Button onClick={increaseAction}>Increase</Button>
+        <Button onClick={decreaseAction}>Decrease</Button>
+        <Slider value={count} onChange={sliderAction}></Slider>
     </div>)
 }
 
