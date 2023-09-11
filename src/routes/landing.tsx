@@ -1,8 +1,8 @@
 import { type IndexRouteObject } from "react-router/dist/lib/context"
 import { ReactComponent as ReactLogo } from "../logo.svg"
 import "../App.css"
-import { Link, Text } from "@fluentui/react-components"
-import React from "react"
+import { Link, Slider, type SliderOnChangeData, Text, Button } from "@fluentui/react-components"
+import React, { type ChangeEvent, useCallback, useState, type MouseEvent } from "react"
 import RouteLink from "../components/RouteLink"
 import BaramiLogo from "../components/BaramiLogo"
 
@@ -31,8 +31,25 @@ const View: React.FC = () => {
 }
 
 const MyScreen: React.FC = () => {
-    return (<div>
-    </div>)
+    const [count, setCount] = useState(0)
+    const sliderAction = useCallback((event: ChangeEvent, data: SliderOnChangeData) => {
+        setCount(data.value)
+    }, [setCount])
+    const increaseAction = useCallback((event: MouseEvent) => {
+        setCount(number => number + 1)
+    }, [setCount])
+    const decreaseAction = useCallback((event: MouseEvent) => {
+        setCount(number => number - 1)
+    }, [setCount])
+    return (
+        <div>
+            <div>
+                <Button onClick={increaseAction}>Increase</Button>
+                <Button onClick={decreaseAction}>Decrease</Button>
+            </div>
+            <Slider onChange={sliderAction} value={count}/>
+        </div>
+    )
 }
 
 const route: IndexRouteObject = {
