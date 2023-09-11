@@ -26,6 +26,9 @@ const defaultToastController = {
 
 const ToastContext = createContext(defaultToastController)
 
+/**
+ * provide ToastController and Toaster to the child context
+*/
 export const ProvideToast: React.FC<ProvideToastProps> = (props: ProvideToastProps) => {
     const toasterId = useId("toaster")
 
@@ -38,6 +41,10 @@ export const ProvideToast: React.FC<ProvideToastProps> = (props: ProvideToastPro
     )
 }
 
+/**
+ * fetch the ToastController from the current context
+ * @return {ToastController}
+*/
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const useToastCenter = () => {
     const realObject = useContext(ToastContext)
