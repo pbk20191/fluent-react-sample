@@ -39,6 +39,10 @@ export const darkTheme: Readonly<Theme> = (() => {
     return Object.freeze(theme)
 })()
 
+/**
+ * use Theme that react to the colorScheme of Environment
+ * @returns {Theme} current appropriate theme
+*/
 export function useSystemTheme(): Readonly<Theme> {
     const [theme, setTheme] = useState(lightTheme)
     useEffect(() => {

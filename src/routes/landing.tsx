@@ -11,7 +11,7 @@ const View: React.FC = () => {
         <div className="App">
             <header className="App-header">
                 <BaramiLogo width={200}/>
-                <ReactLogo className="App-logo"/>
+                <ReactLogo className="App-logo" color="#61DAFB"/>
                 <Text>
                     Edit <code>src/routes/landing.tsx</code> and save to reload.
                 </Text>

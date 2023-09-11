@@ -26,7 +26,7 @@ const RouteNavLink: React.ForwardRefExoticComponent<RouteNavLinkProps> = forward
     }
     assertSlots<LinkSlots>(state)
     // @ts-expect-error ignore
-    return (<RemixNavLink {...props} {...state.root} as={undefined}/>)
+    return (<RemixNavLink {...props} {...state.root}/>)
 })
 
 RouteNavLink.displayName = "RouteNavLink"
