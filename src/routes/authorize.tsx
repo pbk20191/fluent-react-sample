@@ -23,6 +23,7 @@ import React, { Fragment } from "react"
 import { ReactComponent as LockOpenIcon } from "../icon/lock-open.svg"
 import { ReactComponent as PersonIcon } from "../icon/person.svg"
 import { useToastCenter } from "../components/toastCenter"
+import BaramiLogo from "../components/BaramiLogo"
 
 const useStyle = makeStyles({
     logo: {
@@ -63,7 +64,6 @@ const useStyle = makeStyles({
         flexGrow: 1
     },
     fieldIcon: {
-        // "#4D705A"
         color: tokens.colorBrandForeground1,
         alignSelf: "flex-end",
         marginInlineEnd: "9px"
@@ -105,7 +105,7 @@ const View: React.FC = () => {
     const toastCenter = useToastCenter()
     return (
         <div className={style.root}>
-            <img src="/baramiLogo.png" alt="appLogo" className={style.logo} />
+            <BaramiLogo className={style.logo} fit="cover"/>
             <div className={style.container}>
                 <Text weight="bold" size={900} wrap block>
                  SIGN IN

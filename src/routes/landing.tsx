@@ -1,17 +1,19 @@
 import { type IndexRouteObject } from "react-router/dist/lib/context"
-import logo from "../logo.svg"
+import { ReactComponent as ReactLogo } from "../logo.svg"
 import "../App.css"
-import { Image, Link, Text } from "@fluentui/react-components"
+import { Link, Text } from "@fluentui/react-components"
 import React from "react"
 import RouteLink from "../components/RouteLink"
+import BaramiLogo from "../components/BaramiLogo"
 
 const View: React.FC = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <Image src={logo} className="App-logo" alt="logo" />
+                <BaramiLogo width={200}/>
+                <ReactLogo className="App-logo"/>
                 <Text>
-                    Edit <code>src/App.tsx</code> and save to reload.
+                    Edit <code>src/routes/landing.tsx</code> and save to reload.
                 </Text>
                 <Link
                     className="App-link"
