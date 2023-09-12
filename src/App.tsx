@@ -3,7 +3,6 @@ import { RouterProvider } from "react-router-dom"
 import routes from "./routes"
 import { FluentProvider } from "@fluentui/react-components"
 import { useSystemTheme } from "./components/theme"
-import "./App.css"
 import { ProvideToast } from "./components/toastCenter"
 
 const App: React.FC = () => {
