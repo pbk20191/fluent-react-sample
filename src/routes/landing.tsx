@@ -1,6 +1,6 @@
 import { type IndexRouteObject } from "react-router/dist/lib/context"
-import { ReactComponent as ReactLogo } from "../logo.svg"
-import "../App.css"
+import { ReactComponent as ReactLogo } from "../icon/logo.svg"
+import "../style/landing.css"
 import { Link, Text } from "@fluentui/react-components"
 import React from "react"
 import RouteLink from "../components/RouteLink"
