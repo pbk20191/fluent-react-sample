@@ -1,5 +1,5 @@
 import { type IndexRouteObject } from "react-router/dist/lib/context"
-import { ReactComponent as ReactLogo } from "../logo.svg"
+import { ReactComponent as ReactLogo } from "../icon/logo.svg"
 import "../style/landing.css"
 import { Button, Link, Slider, type SliderOnChangeData, Text } from "@fluentui/react-components"
 import React, { type MouseEventHandler, useCallback, useState, type ChangeEvent } from "react"
