@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2.5 400.665283203125 220.614" font-size="16px" color="#0a6342">
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -7 400.665283203125 225" font-size="16px" color="#0a6342"
+    role="figure">
+    <title>Barami</title>
+    <desc>Be Artis of Robotics &amp; Advanced Micro Intelligence</desc>
     <style>
         @import url(https://fonts.cdnfonts.com/css/dolce-vita-heavy);
 
@@ -32,9 +34,7 @@
                 <tspan font-family="Dolce Vita Heavy">I</tspan>ntelligence
             </tspan>
         </tspan>
-    </text>
-    <text fill="currentColor" filter="url(#filter70)" x="0em" dy="1.5em" stroke="currentColor" font-size="8.35em"
-        letter-spacing="0em" stroke-width="2" font-weight="bold" font-family="EF_watermelonSalad">
-        바라미
+        <tspan fill="currentColor" filter="url(#filter70)" x="0em" dy="1em" stroke="currentColor" font-size="8.35em"
+            letter-spacing="0em" stroke-width="2" font-weight="bold" font-family="EF_watermelonSalad">바라미</tspan>
     </text>
 </svg>
