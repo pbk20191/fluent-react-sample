@@ -105,7 +105,7 @@ const View: React.FC = () => {
     const toastCenter = useToastCenter()
     return (
         <div className={style.root}>
-            <BaramiLogo className={style.logo} fit="cover"/>
+            <BaramiLogo className={style.logo}/>
             <div className={style.container}>
                 <Text weight="bold" size={900} wrap block>
                  SIGN IN

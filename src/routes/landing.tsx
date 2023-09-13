@@ -10,7 +10,7 @@ const View: React.FC = () => {
     return (
         <div className="App">
             <header className="App-header">
-                <BaramiLogo width={200}/>
+                <BaramiLogo height={86} preserveAspectRatio="xMinYMax"/>
                 <ReactLogo className="App-logo" color="#61DAFB"/>
                 <Text>
                     Edit <code>src/routes/landing.tsx</code> and save to reload.

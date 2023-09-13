@@ -1,6 +1,7 @@
-import { Button, Image, Text, makeStyles, shorthands, tokens } from "@fluentui/react-components"
+import { Button, Text, makeStyles, shorthands, tokens } from "@fluentui/react-components"
 import React from "react"
 import { type NonIndexRouteObject } from "react-router-dom"
+import BaramiLogo from "../components/BaramiLogo"
 
 const useStyle = makeStyles({
     root: {
@@ -41,7 +42,7 @@ const BulletinBoard: React.FC = () => {
     return (
         <div className={style.root}>
             <div className={style.head}>
-                <Image src="/baramiLogo.png" alt="logo" width="106" height="56"/>
+                <BaramiLogo className="" width="106" height="56"/>
                 <Text size={800} className={style.title}>총무 정산 시스템</Text>
                 <Button appearance="primary" size="large" className={style.loginButton}>통합 SSO 로그인</Button>
             </div>
