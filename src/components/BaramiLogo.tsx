@@ -1,10 +1,8 @@
-import { Image, type ImageProps } from "@fluentui/react-components"
+import { ReactComponent as BaramiSVG } from "../icon/barami.svg"
 import React from "react"
 
-type BaramiLogoProps = Omit<ImageProps, "srcSet" | "alt">
-
-const BaramiLogo: React.FC<BaramiLogoProps> = (props: BaramiLogoProps) => {
-    return (<Image alt="Barami" srcSet="/logo/baramiLogo@1x.png 1x, /logo/baramiLogo@2x.png 2x, /logo/baramiLogo@3x.png 3x" {...props}/>)
+const BaramiLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+    return <BaramiSVG title="barami" {...props} />
 }
 
 export default BaramiLogo
