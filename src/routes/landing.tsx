@@ -1,11 +1,21 @@
 import { type IndexRouteObject } from "react-router/dist/lib/context"
 import { ReactComponent as ReactLogo } from "../icon/logo.svg"
 import "../style/landing.css"
-import { Link, Slider, Text, Button, Field, Input, Toast, ToastTitle, ToastBody, Dialog, DialogTrigger, DialogSurface, DialogActions, DialogBody, DialogContent, DialogTitle } from "@fluentui/react-components"
+import { Link, Slider, Text, Button, Field, Input, Toast, ToastTitle, ToastBody, Dialog, DialogTrigger, DialogSurface, DialogActions, DialogBody, DialogContent, DialogTitle, makeStyles, tokens } from "@fluentui/react-components"
 import React, { type PropsWithChildren, useEffect, useState } from "react"
 import RouteLink from "../components/RouteLink"
 import BaramiLogo from "../components/BaramiLogo"
 import { useToastCenter } from "../components/toastCenter"
+
+const useMyStyle = makeStyles({
+    red: {
+        backgroundColor: "red"
+    },
+    brandBackground: {
+        backgroundColor:
+        tokens.colorBrandBackground
+    }
+})
 
 const View: React.FC = () => {
     return (
@@ -52,11 +62,14 @@ PropsWithChildren<{ number: number }>
 
 const ToastButton: React.FC = () => {
     const toastCenter = useToastCenter()
+    const style1 = useMyStyle()
     return (<Button onClick={() => {
         toastCenter.dispatchToast(
-            <Toast>
-                <ToastTitle>Title</ToastTitle>
-                <ToastBody>Body</ToastBody>
+            <Toast className={style1.brandBackground}>
+                <ToastTitle
+                    className={style1.red}>
+                    Title
+                </ToastTitle>
             </Toast>
         )
     }}>Toast!</Button>)
@@ -91,6 +104,7 @@ const DialogButton: React.FC = () => {
 
 const SuccessField: React.FC = () => {
     const [text, setText] = useState("")
+
     return (
         <Field
             label="simple Label"
