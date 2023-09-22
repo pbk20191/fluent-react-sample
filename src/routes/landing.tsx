@@ -1,10 +1,11 @@
 import { type IndexRouteObject } from "react-router/dist/lib/context"
 import { ReactComponent as ReactLogo } from "../icon/logo.svg"
 import "../style/landing.css"
-import { Link, Slider, type SliderOnChangeData, Text, Button } from "@fluentui/react-components"
-import React, { type ChangeEvent, useCallback, useState, type MouseEvent } from "react"
+import { Link, Slider, Text, Button, Field, Input, Toast, ToastTitle, ToastBody, Dialog, DialogTrigger, DialogSurface, DialogActions, DialogBody, DialogContent, DialogTitle } from "@fluentui/react-components"
+import React, { type PropsWithChildren, useEffect, useState } from "react"
 import RouteLink from "../components/RouteLink"
 import BaramiLogo from "../components/BaramiLogo"
+import { useToastCenter } from "../components/toastCenter"
 
 const View: React.FC = () => {
     return (
@@ -30,24 +31,101 @@ const View: React.FC = () => {
     )
 }
 
+const SmallScreen: React.FC<
+PropsWithChildren<{ number: number }>
+> = (props) => {
+    if (props.number > 40) {
+        return <div>{props.children}</div>
+    }
+    if (props.number > 20) {
+        return <div>
+            {props.children}
+            <Text>{props.number}</Text>
+        </div>
+    }
+    return <div>
+
+        <Text>{props.number}</Text>
+        {props.children}
+    </div>
+}
+
+const ToastButton: React.FC = () => {
+    const toastCenter = useToastCenter()
+    return (<Button onClick={() => {
+        toastCenter.dispatchToast(
+            <Toast>
+                <ToastTitle>Title</ToastTitle>
+                <ToastBody>Body</ToastBody>
+            </Toast>
+        )
+    }}>Toast!</Button>)
+}
+
+const DialogButton: React.FC = () => {
+    return (
+        <Dialog>
+            <DialogTrigger disableButtonEnhancement>
+                <Button>Open dialog</Button>
+            </DialogTrigger>
+            <DialogSurface>
+                <DialogBody>
+                    <DialogTitle>Dialog title</DialogTitle>
+                    <DialogContent>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            exercitationem cumque repellendus eaque est dolor eius expedita
+            nulla ullam? Tenetur reprehenderit aut voluptatum impedit voluptates
+            in natus iure cumque eaque?
+                    </DialogContent>
+                    <DialogActions>
+                        <DialogTrigger disableButtonEnhancement>
+                            <Button appearance="secondary">Close</Button>
+                        </DialogTrigger>
+                        <Button appearance="primary">Do Something</Button>
+                    </DialogActions>
+                </DialogBody>
+            </DialogSurface>
+        </Dialog>
+    )
+}
+
+const SuccessField: React.FC = () => {
+    const [text, setText] = useState("")
+    return (
+        <Field
+            label="simple Label"
+            validationState="success"
+            validationMessage=
+                "This is a success message."
+        >
+            <Input
+                value={text}
+                onChange={(_, data) => {
+                    setText(data.value)
+                }}
+            />
+        </Field>
+    )
+}
+
 const MyScreen: React.FC = () => {
     const [count, setCount] = useState(0)
-    const sliderAction = useCallback((event: ChangeEvent, data: SliderOnChangeData) => {
-        setCount(data.value)
-    }, [setCount])
-    const increaseAction = useCallback((event: MouseEvent) => {
-        setCount(number => number + 1)
-    }, [setCount])
-    const decreaseAction = useCallback((event: MouseEvent) => {
-        setCount(number => number - 1)
-    }, [setCount])
+    useEffect(() => {
+        console.log("render MyScreen")
+    })
     return (
         <div>
             <div>
-                <Button onClick={increaseAction}>Increase</Button>
-                <Button onClick={decreaseAction}>Decrease</Button>
+                <Button onClick={() => { setCount(n => n + 1) }}>Increase</Button>
+                <Button onClick={() => { setCount(n => n - 1) }}>Decrease</Button>
+                <ToastButton/>
+                <DialogButton/>
             </div>
-            <Slider onChange={sliderAction} value={count}/>
+            <Slider value={count} onChange={(_, data) => { setCount(data.value) }} />
+            <SmallScreen number={count}>
+                AAAA<span>asdfsdf</span>
+            </SmallScreen>
+            <SuccessField/>
         </div>
     )
 }
