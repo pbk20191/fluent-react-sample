@@ -13,7 +13,7 @@ const AboutPineapple: React.FC = () => {
     const style = useStyle()
     return (
         <div className={style.pineapple}>
-            <Text>Pineapple</Text>
+            <Text>파인애플 페이지</Text>
         </div>
     )
 }

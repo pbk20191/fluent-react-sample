@@ -7,6 +7,8 @@ import aboutPineapple from "./aboutPineapple"
 import RouteLink from "../../components/RouteLink"
 import { Drawer, DrawerBody, DrawerHeader, DrawerHeaderTitle } from "@fluentui/react-components/unstable"
 import { Dismiss24Regular } from "@fluentui/react-icons"
+import aboutLime from "./aboutLime"
+import aboutDetail from "./aboutDetail"
 
 const useStyle = makeStyles({
     root: {
@@ -62,35 +64,12 @@ const BulletinBoard: React.FC = () => {
 
     return (
         <div className={style.root}>
-            <div className={style.head}>
-                <BaramiLogo width="106" height="56"/>
-                <Text size={800} className={style.title} weight="bold">총무 정산 시스템</Text>
-                <Button appearance="primary" size="large" className={style.loginButton} onClick={() => { setIsOpen(true) }}>통합 SSO 로그인</Button>
-            </div>
-            <Drawer separator open={isOpen} onOpenChange={(_, { open }) => { setIsOpen(open) }}>
-                <DrawerHeader>
-                    <DrawerHeaderTitle
-                        action={
-                            <Button
-                                appearance="subtle"
-                                aria-label="Close"
-                                icon={<Dismiss24Regular />}
-                                onClick={() => { setIsOpen(false) }}
-                            />
-                        }
-                    >
-            Default Drawer
-                    </DrawerHeaderTitle>
-                </DrawerHeader>
 
-                <DrawerBody>
-                    <nav className={style.navHead}>
-                        <RouteLink to="apple">Apple</RouteLink>
-
-                        <RouteLink to="pineapple">PineApple</RouteLink>
-                    </nav>
-                </DrawerBody>
-            </Drawer>
+            <nav className={style.navHead}>
+                <RouteLink to="apple">사과 링크</RouteLink>
+                <RouteLink to="lime">라임 링크</RouteLink>
+                <RouteLink to="pineapple">파인애플 링크</RouteLink>
+            </nav>
             <div className={style.content}>
                 <Outlet/>
             </div>
@@ -104,6 +83,8 @@ const route: NonIndexRouteObject = {
     element: <BulletinBoard/>,
     children: [
         aboutApple,
+        aboutLime,
+        aboutDetail,
         aboutPineapple
     ]
 }

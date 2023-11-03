@@ -24,6 +24,7 @@ const View: React.FC = () => {
                 >
                     Learn React
                 </Link>
+                <RouteLink to="board">go to board</RouteLink>
                 <RouteLink to="authorize">Login</RouteLink>
                 <MyScreen/>
             </header>
