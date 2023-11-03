@@ -1,6 +1,6 @@
 import { Button, Text, makeStyles, shorthands, tokens } from "@fluentui/react-components"
-import React from "react"
-import { Outlet, type NonIndexRouteObject } from "react-router-dom"
+import React, { useEffect } from "react"
+import { Outlet, type NonIndexRouteObject, useMatch, useMatches, useLocation } from "react-router-dom"
 import BaramiLogo from "../../components/BaramiLogo"
 import aboutApple from "./aboutApple"
 import aboutPineapple from "./aboutPineapple"
@@ -60,11 +60,12 @@ const useStyle = makeStyles({
 
 const BulletinBoard: React.FC = () => {
     const style = useStyle()
-    const [isOpen, setIsOpen] = React.useState(false)
-
+    const match = useMatch("/board/detail/:id")
+    const detailId = match?.params.id
     return (
         <div className={style.root}>
 
+            { (detailId != null) && `Detail 페이지 id = ${detailId}` }
             <nav className={style.navHead}>
                 <RouteLink to="apple">사과 링크</RouteLink>
                 <RouteLink to="lime">라임 링크</RouteLink>

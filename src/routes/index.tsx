@@ -3,6 +3,8 @@ import landing from "./landing"
 import authorize from "./authorize"
 import bulletinBoard from "./bulletinBoard"
 
-const router = createBrowserRouter([landing, authorize, bulletinBoard])
+const router = createBrowserRouter(
+    [landing, authorize, bulletinBoard]
+)
 
 export default router
